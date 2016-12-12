@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script type="text/javascript">
+	const caesarShift = function(str, amount) {
+		var output = "";
+		var shift = 0;
+		if(amount>26){
+			alert("Shift amount too big, Must be between 0 and 26");
+			return;
+		}
+		for(var i = 0; i < str.length; i++){
+		
+		for(var q = 0;q<2;q++){
+		if((str.charCodeAt(i)>=65 && str.charCodeAt(i) < 90 && (str.charCodeAt(i)+amount)> 90)||(str.charCodeAt(i)>=97 && str.charCodeAt(i) < 122 && (str.charCodeAt(i)+amount)> 122))
+			shift = (str.charCodeAt(i)+amount) - 26;
+		}
+		
+		if(!((str.charCodeAt(i)>=65 && str.charCodeAt(i) < 90 && (str.charCodeAt(i)+amount)> 90)||(str.charCodeAt(i)>=97 && str.charCodeAt(i) < 122 && (str.charCodeAt(i)+amount)> 122)))
+		 shift = (str.charCodeAt(i)+amount);
+		
+		if(str.charCodeAt(i) === 32)
+			shift = str.charCodeAt(i);
+
+		output += String.fromCharCode(shift);
+	}
+	console.log(output);
+
+	};
+
+
+
+
+
+caesarShift('Hello World', 23);  // should return 'Mjqqt Btwqi'
+
+caesarShift('Hello World', 21); // should return 'Czggj Rjmgy'
+
+
+</script>
+</body>
+</html>
